@@ -28,8 +28,9 @@ const SearchParams = () => {
   }
 
   return (
-    <div className="search-params">
+    <div className="my-0 mx-auto w-11/12">
       <form
+        className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center"
         onSubmit={(e) => {
           e.preventDefault();
           requestPets();
@@ -39,9 +40,11 @@ const SearchParams = () => {
           Location
           <input
             id="location"
+            type="text"
             value={location}
             placeholder="Location"
             onChange={(e) => setLocation(e.target.value)}
+            className="w-60 mb-5 block"
           />
         </label>
         <label htmlFor="animal">
@@ -49,6 +52,7 @@ const SearchParams = () => {
           <select
             id="animal"
             value={animal}
+            className="w-60 mb-5 block"
             onChange={(e) => {
               setAnimal(e.target.value);
               setBreed("");
@@ -73,6 +77,8 @@ const SearchParams = () => {
           <select
             id="breed"
             value={breed}
+            disabled={!breeds.length}
+            className="w-60 mb-5 block disabled:opacity-50"
             onChange={(e) => {
               setBreed(e.target.value);
             }}
@@ -92,6 +98,7 @@ const SearchParams = () => {
           Theme
           <select
             value={theme}
+            className="w-60 mb-5 block"
             onChange={(e) => setTheme(e.target.value)}
             onBlur={(e) => setTheme(e.target.value)}
           >
@@ -102,7 +109,12 @@ const SearchParams = () => {
             <option value="#f06d06">Fog Dog</option>
           </select>
         </label>
-        <button style={{ backgroundColor: theme }}>Submit</button>
+        <button
+          className="rounded px-6 py-p text-white hover:opacity-50 border-none"
+          style={{ backgroundColor: theme }}
+        >
+          Submit
+        </button>
       </form>
       <Results pets={pets} />
     </div>
