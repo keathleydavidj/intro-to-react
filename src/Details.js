@@ -27,33 +27,36 @@ class Details extends Component {
       this.state;
 
     return (
-      <div className="details">
-        <Carousel images={images} />
-        <div>
-          <h1>{name}</h1>
-          <h2>{`${animal} – ${breed} – ${city}, ${state}`}</h2>
-          <ThemeContext.Consumer>
-            {([theme]) => (
-              <button
-                onClick={this.toggleModal}
-                style={{ backgroundColor: theme }}
-              >
-                Adopt {name}
-              </button>
-            )}
-          </ThemeContext.Consumer>
-          <p>{description}</p>
-          {showModal ? (
-            <Modal>
-              <div>
-                <h1>Would you like to adopt {name}?</h1>
-                <div className="buttons">
-                  <a href="https://bit.ly/pet-adopt">Yes</a>
-                  <button onClick={this.toggleModal}>No</button>
+      <div className="my-0 mx-auto w-11/12">
+        <div className="p-10 m- mb-6 rounded-lg bg-[#faeff0] shadow-md shadow-stone-600 flex flex-col justify-items items-center">
+          {/* <Carousel images={images} /> */}
+          <div className="flex flex-col justify-center items-center">
+            <h1 className="text-center text-gray-800 text-6xl my-1">{name}</h1>
+            <h2 className="text-center mt-1 mb-5">{`${animal} – ${breed} – ${city}, ${state}`}</h2>
+            <ThemeContext.Consumer>
+              {([theme]) => (
+                <button
+                  className="rounded px-6 py-p mb-2 text-white hover:opacity-50 border-none"
+                  onClick={this.toggleModal}
+                  style={{ backgroundColor: theme }}
+                >
+                  Adopt {name}
+                </button>
+              )}
+            </ThemeContext.Consumer>
+            <p className="text-center ml-1 mr-5">{description}</p>
+            {showModal ? (
+              <Modal>
+                <div>
+                  <h1>Would you like to adopt {name}?</h1>
+                  <div className="inline-block mr-4">
+                    <a href="https://bit.ly/pet-adopt">Yes</a>
+                    <button onClick={this.toggleModal}>No</button>
+                  </div>
                 </div>
-              </div>
-            </Modal>
-          ) : null}
+              </Modal>
+            ) : null}
+          </div>
         </div>
       </div>
     );
