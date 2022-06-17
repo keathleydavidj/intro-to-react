@@ -29,7 +29,7 @@ class Details extends Component {
     return (
       <div className="my-0 mx-auto w-11/12">
         <div className="p-10 m- mb-6 rounded-lg bg-[#faeff0] shadow-md shadow-stone-600 flex flex-col justify-items items-center">
-          {/* <Carousel images={images} /> */}
+          <Carousel images={images} />
           <div className="flex flex-col justify-center items-center">
             <h1 className="text-center text-gray-800 text-6xl my-1">{name}</h1>
             <h2 className="text-center mt-1 mb-5">{`${animal} – ${breed} – ${city}, ${state}`}</h2>
