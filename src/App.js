@@ -1,15 +1,14 @@
-import { StrictMode, useState } from "react";
+import { StrictMode } from "react";
 import { render } from "react-dom";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import SearchParams from "./SearchParams.js";
 import Details from "./Details.js";
-import ThemeContext from "./ThemeContext.js";
+import { Provider } from "react-redux";
+import store from "./store";
 
 const App = () => {
-  const theme = useState("darkblue");
-
   return (
-    <ThemeContext.Provider value={theme}>
+    <Provider store={store}>
       <StrictMode>
         <BrowserRouter>
           <header>
@@ -21,7 +20,7 @@ const App = () => {
           </Routes>
         </BrowserRouter>
       </StrictMode>
-    </ThemeContext.Provider>
+    </Provider>
   );
 };
 
